@@ -8,6 +8,8 @@ import org.zgl.jetty.session.SessionManager;
 import org.zgl.logic.hall.shop.ShopEnum;
 import org.zgl.logic.hall.shop.data.CommodityDataTable;
 import org.zgl.logic.hall.task.manager.TaskManager;
+import org.zgl.logic.hall.weath.dto.WeathResourceDto;
+import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.player.UserMap;
 import org.zgl.utils.builder_clazz.ann.Protocol;
 
@@ -30,14 +32,15 @@ public class ShopBuy_prop extends OperateCommandAbstract {
         if(dataTable == null)
             new LogAppError("获取不到id为:"+commodityId+" 商城对应的物品");
         UserMap userMap = SessionManager.getSession(getAccount());
-        if(!userMap.getWeath().reduceGold(dataTable.getSelling())){
+        SQLWeathModel weath = userMap.getWeath();
+        if(!weath.reduceIntegral(dataTable.getSelling())){
             new GenaryAppError(AppErrorCode.GOLD_NOT_ERR);
         }
         ShopEnum shopEnum = ShopEnum.getEnum(dataTable.getShopId());
         int count = dataTable.getCount();
         TaskManager.getInstance().listener(userMap,9);//道具
-        userMap.getWeath().addResource(shopEnum,commodityId,count);
+        weath.addResource(shopEnum,commodityId,count);
         userMap.update(new String[]{"task","weath"});
-        return null;
+        return new WeathResourceDto(weath.getGold(),weath.getDiamond(),weath.getIntegral());
     }
 }

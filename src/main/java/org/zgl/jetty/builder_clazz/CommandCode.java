@@ -26,9 +26,11 @@ public class CommandCode{
 	public static final int ShopBuy_gold = 24;
 	public static final int ShopBuy_moneyTree = 25;
 	public static final int ShopBuy_prop = 26;
+	public static final int ShopBuy_Diamond = 27;
 	public static final int RoomPlayerInfo = 10000;
 	public static final int RoomUpdateWeath = 10001;
 	public static final int IntoHall = 10002;
 	public static final int RoomPlayerErrorLogout = 10003;
 	public static final int FirstRoomChange = 10006;
+	public static final int ShopUpdateWeathOPeration = 10008;
 }

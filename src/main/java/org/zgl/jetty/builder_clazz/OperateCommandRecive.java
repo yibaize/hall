@@ -25,11 +25,13 @@ import org.zgl.logic.hall.shop.cmd.ShopBuy_exchange;
 import org.zgl.logic.hall.shop.cmd.ShopBuy_gold;
 import org.zgl.logic.hall.shop.cmd.ShopBuy_moneyTree;
 import org.zgl.logic.hall.shop.cmd.ShopBuy_prop;
+import org.zgl.logic.hall.shop.cmd.ShopBuy_Diamond;
 import org.zgl.logic.room_connection.RoomPlayerInfo;
 import org.zgl.logic.hall.weath.cmd.RoomUpdateWeath;
 import org.zgl.logic.room_connection.IntoHall;
 import org.zgl.logic.room_connection.RoomPlayerErrorLogout;
 import org.zgl.logic.room_connection.FirstRoomChange;
+import org.zgl.logic.hall.weath.cmd.ShopUpdateWeathOPeration;
 import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateCommandRecive{
 	private static OperateCommandRecive instance;
 	public static OperateCommandRecive getInstance(){
@@ -91,6 +93,8 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 				return getShopBuy_moneyTree(params);
 			case 26:
 				return getShopBuy_prop(params);
+			case 27:
+				return getShopBuy_Diamond(params);
 			case 10000:
 				return getRoomPlayerInfo(params);
 			case 10001:
@@ -101,6 +105,8 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 				return getRoomPlayerErrorLogout(params);
 			case 10006:
 				return getFirstRoomChange(params);
+			case 10008:
+				return getShopUpdateWeathOPeration(params);
 			default:
 				return null;
 		}
@@ -232,6 +238,11 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 		String value1 = params[1];
 		return new ShopBuy_prop(value0,value1);
 	}
+	private OperateCommandAbstract getShopBuy_Diamond(String[] params){
+		int value0 = Integer.parseInt(params[0]);
+		String value1 = params[1];
+		return new ShopBuy_Diamond(value0,value1);
+	}
 	private OperateCommandAbstract getRoomPlayerInfo(String[] params){
 		String value0 = params[0];
 		return new RoomPlayerInfo(value0);
@@ -252,5 +263,10 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 	private OperateCommandAbstract getFirstRoomChange(String[] params){
 		String value0 = params[0];
 		return new FirstRoomChange(value0);
+	}
+	private OperateCommandAbstract getShopUpdateWeathOPeration(String[] params){
+		String value0 = params[0];
+		String value1 = params[1];
+		return new ShopUpdateWeathOPeration(value0,value1);
 	}
 }

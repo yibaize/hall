@@ -160,25 +160,7 @@ public class SQLWeathModel {
         }
     }
 
-    /**
-     * 添加积分
-     */
-    public void addIntegral(long count){
-        integral += count;
-    }
 
-    /**
-     * 检查并减少积分
-     * @param num
-     * @return
-     */
-    public boolean reduceIntegral(long num){
-        if(integral >= num) {
-            integral -= num;
-            return true;
-        }
-        return false;
-    }
     /**
      * 添加资源
      * @param models
@@ -225,7 +207,25 @@ public class SQLWeathModel {
         }
         return false;
     }
+    /**
+     * 添加积分
+     */
+    public void addIntegral(long count){
+        integral += count;
+    }
 
+    /**
+     * 检查并减少积分
+     * @param num
+     * @return
+     */
+    public boolean reduceIntegral(long num){
+        if(integral >= num) {
+            integral -= num;
+            return true;
+        }
+        return false;
+    }
     /**
      * 减少金币
      * @param count
@@ -239,7 +239,7 @@ public class SQLWeathModel {
         return false;
     }
     /**
-     * 减少金币
+     * 减少钻石
      * @param count
      * @return
      */

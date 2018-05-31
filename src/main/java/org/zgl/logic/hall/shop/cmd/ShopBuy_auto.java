@@ -7,6 +7,7 @@ import org.zgl.jetty.operation.OperateCommandAbstract;
 import org.zgl.jetty.session.SessionManager;
 import org.zgl.logic.hall.shop.data.CommodityDataTable;
 import org.zgl.logic.hall.task.manager.TaskManager;
+import org.zgl.logic.hall.weath.dto.WeathResourceDto;
 import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.player.UserMap;
 import org.zgl.utils.builder_clazz.ann.Protocol;
@@ -30,11 +31,12 @@ public class ShopBuy_auto extends OperateCommandAbstract {
         if(dataTable == null)
             new LogAppError("获取不到id为:"+commodityId+" 商城对应的物品");
         UserMap userMap = SessionManager.getSession(getAccount());
+        SQLWeathModel weath = userMap.getWeath();
         int count = dataTable.getCount();
-        bayAuto(userMap.getWeath(),dataTable,count);
+        bayAuto(weath,dataTable,count);
         TaskManager.getInstance().listener(userMap,11);//购买座驾
         userMap.update(new String[]{"task"});
-        return null;
+        return new WeathResourceDto(weath.getGold(),weath.getDiamond(),weath.getIntegral());
     }
     /**
      * 购买座驾

@@ -7,6 +7,7 @@ import org.zgl.jetty.operation.OperateCommandAbstract;
 import org.zgl.jetty.session.SessionManager;
 import org.zgl.logic.hall.shop.data.CommodityDataTable;
 import org.zgl.logic.hall.task.manager.TaskManager;
+import org.zgl.logic.hall.weath.dto.WeathResourceDto;
 import org.zgl.logic.hall.weath.po.SQLMoenyTree;
 import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.player.UserMap;
@@ -36,7 +37,7 @@ public class ShopBuy_moneyTree extends OperateCommandAbstract {
         moneyTree(weath);
         TaskManager.getInstance().listener(userMap,12);//获得摇钱树
         userMap.update(new String[]{"weath"});
-        return null;
+        return new WeathResourceDto(weath.getGold(),weath.getDiamond(),weath.getIntegral());
     }
     /**
      * 购买摇钱树
