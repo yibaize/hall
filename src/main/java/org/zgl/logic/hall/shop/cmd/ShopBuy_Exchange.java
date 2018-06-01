@@ -13,9 +13,9 @@ import org.zgl.utils.builder_clazz.ann.Protocol;
  * @文件描述：
  */
 @Protocol("23")
-public class ShopBuy_exchange extends OperateCommandAbstract {
+public class ShopBuy_Exchange extends OperateCommandAbstract {
     private final int commodityId;
-    public ShopBuy_exchange(int commodityId, String account) {
+    public ShopBuy_Exchange(int commodityId, String account) {
         super(account);
         this.commodityId = commodityId;
     }

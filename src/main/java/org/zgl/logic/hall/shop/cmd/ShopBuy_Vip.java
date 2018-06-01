@@ -12,9 +12,9 @@ import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.player.UserMap;
 import org.zgl.utils.builder_clazz.ann.Protocol;
 @Protocol("7")
-public class ShopBuy_vip extends OperateCommandAbstract {
+public class ShopBuy_Vip extends OperateCommandAbstract {
     private final int commodityId;
-    public ShopBuy_vip(int commodityId, String account) {
+    public ShopBuy_Vip(int commodityId, String account) {
         super(account);
         this.commodityId = commodityId;
     }

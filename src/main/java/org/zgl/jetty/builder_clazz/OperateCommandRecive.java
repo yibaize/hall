@@ -5,7 +5,7 @@ import org.zgl.logic.hall.giftBag.GiftBagCmd;
 import org.zgl.logic.hall.frineds.cmd.FriendRequestList;
 import org.zgl.logic.hall.frineds.cmd.FriendSendGift;
 import org.zgl.logic.hall.frineds.cmd.FriendHandler;
-import org.zgl.logic.hall.shop.cmd.ShopBuy_vip;
+import org.zgl.logic.hall.shop.cmd.ShopBuy_Vip;
 import org.zgl.logic.hall.weath.cmd.MoneyTree;
 import org.zgl.logic.hall.onlineAward.OnlineAwardCmd;
 import org.zgl.logic.hall.siginin.logic.AcitivityCmd;
@@ -20,11 +20,11 @@ import org.zgl.logic.room_connection.IntoRoom;
 import org.zgl.logic.hall.weath.cmd.AutoUse;
 import org.zgl.logic.hall.weath.cmd.PlayerWeath;
 import org.zgl.player.RequestPlayerInfo;
-import org.zgl.logic.hall.shop.cmd.ShopBuy_auto;
-import org.zgl.logic.hall.shop.cmd.ShopBuy_exchange;
-import org.zgl.logic.hall.shop.cmd.ShopBuy_gold;
-import org.zgl.logic.hall.shop.cmd.ShopBuy_moneyTree;
-import org.zgl.logic.hall.shop.cmd.ShopBuy_prop;
+import org.zgl.logic.hall.shop.cmd.ShopBuy_Auto;
+import org.zgl.logic.hall.shop.cmd.ShopBuy_Exchange;
+import org.zgl.logic.hall.shop.cmd.ShopBuy_Gold;
+import org.zgl.logic.hall.shop.cmd.ShopBuy_MoneyTree;
+import org.zgl.logic.hall.shop.cmd.ShopBuy_Prop;
 import org.zgl.logic.hall.shop.cmd.ShopBuy_Diamond;
 import org.zgl.logic.room_connection.RoomPlayerInfo;
 import org.zgl.logic.hall.weath.cmd.RoomUpdateWeath;
@@ -150,7 +150,7 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 	private OperateCommandAbstract getShopBuy_vip(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
-		return new ShopBuy_vip(value0,value1);
+		return new ShopBuy_Vip(value0,value1);
 	}
 	private OperateCommandAbstract getMoneyTree(String[] params){
 		int value0 = Integer.parseInt(params[0]);
@@ -216,27 +216,27 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 	private OperateCommandAbstract getShopBuy_auto(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
-		return new ShopBuy_auto(value0,value1);
+		return new ShopBuy_Auto(value0,value1);
 	}
 	private OperateCommandAbstract getShopBuy_exchange(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
-		return new ShopBuy_exchange(value0,value1);
+		return new ShopBuy_Exchange(value0,value1);
 	}
 	private OperateCommandAbstract getShopBuy_gold(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
-		return new ShopBuy_gold(value0,value1);
+		return new ShopBuy_Gold(value0,value1);
 	}
 	private OperateCommandAbstract getShopBuy_moneyTree(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
-		return new ShopBuy_moneyTree(value0,value1);
+		return new ShopBuy_MoneyTree(value0,value1);
 	}
 	private OperateCommandAbstract getShopBuy_prop(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
-		return new ShopBuy_prop(value0,value1);
+		return new ShopBuy_Prop(value0,value1);
 	}
 	private OperateCommandAbstract getShopBuy_Diamond(String[] params){
 		int value0 = Integer.parseInt(params[0]);
