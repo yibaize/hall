@@ -18,9 +18,9 @@ public class Logout extends OperateCommandAbstract {
     }
     @Override
     public Object execute() {
-        UserMap userMap = SessionManager.removeSession(getAccount());
-        if(userMap == null)
-            new GenaryAppError(AppErrorCode.SERVER_ERR);
+//        UserMap userMap = SessionManager.removeSession(getAccount());
+//        if(userMap == null)
+//            new GenaryAppError(AppErrorCode.SERVER_ERR);
         return null;
     }
 }

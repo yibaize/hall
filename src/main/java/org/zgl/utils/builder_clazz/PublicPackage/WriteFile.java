@@ -20,7 +20,7 @@ public class WriteFile {
             if(!dirFile.exists()){//文件路径不存在时，自动创建目录
                 dirFile.mkdir();
             }
-            String clazzName = Divpath+"//"+beanName;//文件名字
+            String clazzName = Divpath+"\\"+beanName;//文件名字
             File file = new File(clazzName);
             //创建一个使用指定大小输出缓冲区的新缓冲字符输出流
             ow = new BufferedWriter(new FileWriter(file));

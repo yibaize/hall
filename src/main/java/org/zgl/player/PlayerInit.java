@@ -8,7 +8,7 @@ import org.zgl.logic.hall.task.po.SQLTaskModel;
 import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.logic.login.dto.LoginCmdBody;
 import org.zgl.logic.login.po.SQLUserBaseInfo;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.utils.IDFactory;
 import org.zgl.utils.JsonUtils;
 
@@ -30,8 +30,8 @@ public final class PlayerInit {
     public PlayerInit() {
 
     }
-    public static final User getUserInitInfo(LoginCmdBody cmdBody){
-        User u = new User();
+    public static final Db_user getUserInitInfo(LoginCmdBody cmdBody){
+        Db_user u = new Db_user();
         u.setId(IDFactory.getId());
         u.setAccount(cmdBody.getAccount());
         u.setPassword(cmdBody.getPassword());
@@ -45,7 +45,7 @@ public final class PlayerInit {
         return u;
     }
 
-    public static UserMap initUserMap(User u){
+    public static UserMap initUserMap(Db_user u){
         UserMap um = new UserMap();
         um.map2entity(u);
         return um;

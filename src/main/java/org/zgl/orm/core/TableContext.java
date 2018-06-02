@@ -25,7 +25,7 @@ public class TableContext {
         try {
             Connection conn = DBManager.getConnection();
             DatabaseMetaData dbmd = conn.getMetaData();
-            ResultSet tableSet = dbmd.getTables(null,null,"%",null);
+            ResultSet tableSet = dbmd.getTables(null,null,"db_%", null);
             while (tableSet.next()){
                 String tableName = (String)tableSet.getObject("TABLE_NAME");
                 TableInfo ti = new TableInfo(tableName,new HashMap<String, ColumnInfo>(),new ArrayList<ColumnInfo>());

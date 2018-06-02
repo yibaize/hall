@@ -8,12 +8,11 @@ import org.zgl.jetty.session.SessionManager;
 import org.zgl.logic.login.dto.LoginCmdBody;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.AdminInfo;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_admininfo;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.LoginDto;
 import org.zgl.player.PlayerInit;
 import org.zgl.player.UserMap;
-import org.zgl.utils.DateUtils;
 import org.zgl.utils.builder_clazz.ann.Protocol;
 
 import java.sql.Date;
@@ -54,12 +53,12 @@ public class LoginHandler extends OperateCommandAbstract {
         cmdBody.setGender(gender);
         Query query = QueryFactory.createQuery();
         //查找用户是否存在
-        User u = (User) query.queryUniqueRow("SELECT * FROM user WHERE account=?",User.class,new Object[]{getAccount()});
+        Db_user u = (Db_user) query.queryUniqueRow("SELECT * FROM db_user WHERE account=?",Db_user.class,new Object[]{getAccount()});
         if(u == null){
             Date date = new Date(new java.util.Date().getTime());
-            AdminInfo adminInfo = (AdminInfo) query.queryUniqueRow("SELECT * FROM adminInfo WHERE timer=?",AdminInfo.class,new Object[]{date});
+            Db_admininfo adminInfo = (Db_admininfo) query.queryUniqueRow("SELECT * FROM db_adminInfo WHERE timer=?",Db_admininfo.class,new Object[]{date});
             if(adminInfo == null){
-                adminInfo = new AdminInfo();
+                adminInfo = new Db_admininfo();
                 adminInfo.setTimer(date);
                 adminInfo.setRegistNum(1);
                 query.insert(adminInfo);

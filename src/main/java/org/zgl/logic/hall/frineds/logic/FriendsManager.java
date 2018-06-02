@@ -12,7 +12,7 @@ import org.zgl.logic.hall.task.manager.TaskManager;
 import org.zgl.logic.hall.vip.po.VipDataTable;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.OtherInfoModel;
 import org.zgl.player.PlayerInit;
 import org.zgl.player.UserMap;
@@ -55,7 +55,7 @@ public class FriendsManager {
         if(frinedsModel.getFriendsInfos().size() ==5){
             TaskManager.getInstance().listener(selfMap,3);
             Query query = QueryFactory.createQuery();
-            User user = selfMap.entity2map();
+            Db_user user = selfMap.entity2map();
             query.update(user,new String[]{"task"});
         }
         //更新字段
@@ -100,13 +100,13 @@ public class FriendsManager {
             //玫瑰
             TaskManager.getInstance().listener(selfMap,2);
             Query query = QueryFactory.createQuery();
-            User user = selfMap.entity2map();
+            Db_user user = selfMap.entity2map();
             query.update(user,new String[]{"task"});
         }else if(dataTable.getShopId() == 2){
             //座驾
             TaskManager.getInstance().listener(selfMap,7);
             Query query = QueryFactory.createQuery();
-            User user = selfMap.entity2map();
+            Db_user user = selfMap.entity2map();
             query.update(user,new String[]{"task"});
         }
          return null;
@@ -154,14 +154,14 @@ public class FriendsManager {
     }
     private UserMap selectUser(String account){
         Query query = QueryFactory.createQuery();
-        User u = (User) query.queryUniqueRow("SELECT * FROM user WHERE account=?",User.class,new Object[]{account});
+        Db_user u = (Db_user) query.queryUniqueRow("SELECT * FROM db_user WHERE account=?",Db_user.class,new Object[]{account});
         if(u == null)
             new GenaryAppError(AppErrorCode.FRIEND_NOT_USER_ERR);
         return PlayerInit.initUserMap(u);
     }
     private boolean updateUser(UserMap um){
         Query query = QueryFactory.createQuery();
-        User user = um.entity2map();
+        Db_user user = um.entity2map();
         return query.update(user,new String[]{"friends"}) > 0;
     }
 }

@@ -9,7 +9,7 @@ import org.eclipse.jetty.server.Server;
  */
 public class JettyServer {
     public static void start() throws Exception {
-        Server server = new Server(8080);
+        Server server = new Server(5050);
         server.setHandler(new MyHandler());
         // 启动服务器
         server.start();

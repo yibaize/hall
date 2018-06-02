@@ -9,7 +9,7 @@ import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.logic.login.po.SQLUserBaseInfo;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.utils.DateUtils;
 import org.zgl.utils.JsonUtils;
 import org.zgl.utils.executer.Worker;
@@ -130,8 +130,8 @@ public class UserMap {
      * 实体转换成映射类
      * @return 数据库存储类
      */
-    public User entity2map(){
-        User u = new User();
+    public Db_user entity2map(){
+        Db_user u = new Db_user();
         u.setId(id);
         u.setAccount(account);
         u.setPassword(password);
@@ -148,7 +148,7 @@ public class UserMap {
      * 将数据库类换成实体类
      * @return
      */
-    public UserMap map2entity(User u){
+    public UserMap map2entity(Db_user u){
         this.id = u.getId();
         this.account = u.getAccount();
         this.password = u.getPassword();

@@ -2,7 +2,7 @@ package org.zgl.utils;
 
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.AdminInfo;
+import org.zgl.orm.po.Db_admininfo;
 
 public class IDFactory {
     private static int inInit = 0;
@@ -17,8 +17,8 @@ public class IDFactory {
             if(tag == 0){
                 //说明重启了
                 //select max(id) from tablename
-                AdminInfo info = (AdminInfo) query.queryUniqueRow("SELECT * FROM adminInfo WHERE id=(SELECT MAX(id) FROM adminInfo)",
-                        AdminInfo.class,null);
+                Db_admininfo info = (Db_admininfo) query.queryUniqueRow("SELECT * FROM db_adminInfo WHERE id=(SELECT MAX(id) FROM db_adminInfo)",
+                        Db_admininfo.class,null);
                 if(info != null){
                     inInit = info.getRegistNum();
                 }

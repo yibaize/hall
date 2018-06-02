@@ -7,7 +7,7 @@ import org.zgl.logic.hall.task.po.SQLTaskModel;
 import org.zgl.logic.hall.task.po.TaskModel;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.UserMap;
 import org.zgl.utils.DateUtils;
 import org.zgl.utils.builder_clazz.ann.Protocol;
@@ -30,7 +30,7 @@ public class RequestTaskList extends OperateCommandAbstract {
             task.getEveryDayTask().clear();
             task.setTime(DateUtils.currentDay());
             Query query = QueryFactory.createQuery();
-            User user = userMap.entity2map();
+            Db_user user = userMap.entity2map();
             query.update(user,new String[]{"task"});
         }
         List<TaskModel> systm = new ArrayList<>(task.getSystemTask().values());

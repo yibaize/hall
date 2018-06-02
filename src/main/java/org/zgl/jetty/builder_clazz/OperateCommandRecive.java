@@ -54,7 +54,7 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 			case 6:
 				return getFriendHandler(params);
 			case 7:
-				return getShopBuy_vip(params);
+				return getShopBuy_Vip(params);
 			case 8:
 				return getMoneyTree(params);
 			case 9:
@@ -84,15 +84,15 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 			case 21:
 				return getRequestPlayerInfo(params);
 			case 22:
-				return getShopBuy_auto(params);
+				return getShopBuy_Auto(params);
 			case 23:
-				return getShopBuy_exchange(params);
+				return getShopBuy_Exchange(params);
 			case 24:
-				return getShopBuy_gold(params);
+				return getShopBuy_Gold(params);
 			case 25:
-				return getShopBuy_moneyTree(params);
+				return getShopBuy_MoneyTree(params);
 			case 26:
-				return getShopBuy_prop(params);
+				return getShopBuy_Prop(params);
 			case 27:
 				return getShopBuy_Diamond(params);
 			case 10000:
@@ -147,7 +147,7 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 		String value2 = params[2];
 		return new FriendHandler(value0,value1,value2);
 	}
-	private OperateCommandAbstract getShopBuy_vip(String[] params){
+	private OperateCommandAbstract getShopBuy_Vip(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
 		return new ShopBuy_Vip(value0,value1);
@@ -213,27 +213,27 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 		String value0 = params[0];
 		return new RequestPlayerInfo(value0);
 	}
-	private OperateCommandAbstract getShopBuy_auto(String[] params){
+	private OperateCommandAbstract getShopBuy_Auto(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
 		return new ShopBuy_Auto(value0,value1);
 	}
-	private OperateCommandAbstract getShopBuy_exchange(String[] params){
+	private OperateCommandAbstract getShopBuy_Exchange(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
 		return new ShopBuy_Exchange(value0,value1);
 	}
-	private OperateCommandAbstract getShopBuy_gold(String[] params){
+	private OperateCommandAbstract getShopBuy_Gold(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
 		return new ShopBuy_Gold(value0,value1);
 	}
-	private OperateCommandAbstract getShopBuy_moneyTree(String[] params){
+	private OperateCommandAbstract getShopBuy_MoneyTree(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
 		return new ShopBuy_MoneyTree(value0,value1);
 	}
-	private OperateCommandAbstract getShopBuy_prop(String[] params){
+	private OperateCommandAbstract getShopBuy_Prop(String[] params){
 		int value0 = Integer.parseInt(params[0]);
 		String value1 = params[1];
 		return new ShopBuy_Prop(value0,value1);

@@ -1,7 +1,5 @@
 package org.zgl.logic.hall.shop.cmd;
 
-import org.zgl.error.AppErrorCode;
-import org.zgl.error.GenaryAppError;
 import org.zgl.error.LogAppError;
 import org.zgl.jetty.operation.OperateCommandAbstract;
 import org.zgl.jetty.session.SessionManager;

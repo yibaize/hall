@@ -1,11 +1,12 @@
 package org.zgl.orm;
 
+import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
 
 public class ORMTest {
     public static void main(String[] args) {
         QueryFactory.initDatabases();
-//        Query q = QueryFactory.createQuery();
+        Query q = QueryFactory.createQuery();
 //        User u = new User();
 //        u.setAccount("123456");
 //        u.setPassword("123456");

@@ -2,6 +2,7 @@ package org.zgl.jetty.session;
 
 import org.zgl.player.UserMap;
 import org.zgl.utils.DateUtils;
+import org.zgl.utils.logger.LoggerUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,11 +17,14 @@ public class SessionManager {
         boolean success = false;
         if(!onlineSessions.containsKey(playerId))
             success = onlineSessions.putIfAbsent(playerId,userMap) == null ? true : false;
+        LoggerUtils.getLogicLog().info(playerId + "添加成功"+" : "+success);
         return success;
     }
     public static UserMap removeSession(String playerId){
+        LoggerUtils.getLogicLog().info("正在删除"+" : ");
         if(!onlineSessions.containsKey(playerId)) return null;
         UserMap session = onlineSessions.remove(playerId);
+        LoggerUtils.getLogicLog().info("删除成功"+" : ");
         return session;
     }
     public static UserMap getSession(String account){

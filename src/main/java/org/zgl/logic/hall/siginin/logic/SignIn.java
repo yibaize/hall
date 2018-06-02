@@ -12,7 +12,7 @@ import org.zgl.logic.hall.weath.dto.WeathResourceDto;
 import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.UserMap;
 import org.zgl.utils.DateUtils;
 import org.zgl.utils.builder_clazz.ann.Protocol;
@@ -52,7 +52,7 @@ public class SignIn extends OperateCommandAbstract {
         model.setSignDay(day);
         model.setSignInTime(todayTime);
         //更新数据
-        User u = um.entity2map();
+        Db_user u = um.entity2map();
         Query query =QueryFactory.createQuery();
         query.update(u,new String[]{"signIn"});
 

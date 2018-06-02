@@ -6,7 +6,7 @@ public class CommandCode{
 	public static final int FriendRequestList = 4;
 	public static final int FriendSendGift = 5;
 	public static final int FriendHandler = 6;
-	public static final int ShopBuy_vip = 7;
+	public static final int ShopBuy_Vip = 7;
 	public static final int MoneyTree = 8;
 	public static final int OnlineAwardCmd = 9;
 	public static final int AcitivityCmd = 10;
@@ -21,11 +21,11 @@ public class CommandCode{
 	public static final int AutoUse = 19;
 	public static final int PlayerWeath = 20;
 	public static final int RequestPlayerInfo = 21;
-	public static final int ShopBuy_auto = 22;
-	public static final int ShopBuy_exchange = 23;
-	public static final int ShopBuy_gold = 24;
-	public static final int ShopBuy_moneyTree = 25;
-	public static final int ShopBuy_prop = 26;
+	public static final int ShopBuy_Auto = 22;
+	public static final int ShopBuy_Exchange = 23;
+	public static final int ShopBuy_Gold = 24;
+	public static final int ShopBuy_MoneyTree = 25;
+	public static final int ShopBuy_Prop = 26;
 	public static final int ShopBuy_Diamond = 27;
 	public static final int RoomPlayerInfo = 10000;
 	public static final int RoomUpdateWeath = 10001;

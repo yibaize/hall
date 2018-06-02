@@ -2,7 +2,7 @@ package org.zgl.orm.po;
 
 import java.sql.*;
 import java.util.*;
-public class User {
+public class Db_user {
 
 	private String baseInfo;
 	private String password;

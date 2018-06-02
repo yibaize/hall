@@ -7,7 +7,7 @@ import org.zgl.jetty.operation.OperateCommandAbstract;
 import org.zgl.jetty.session.SessionManager;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.LoginDto;
 import org.zgl.player.PlayerInit;
 import org.zgl.player.UserMap;
@@ -28,7 +28,7 @@ public class LoginHandler_2 extends OperateCommandAbstract {
             new GenaryAppError(AppErrorCode.LOGIN_ERR);
         //查找用户是否存在
         Query query = QueryFactory.createQuery();
-        User u = (User) query.queryUniqueRow("SELECT * FROM user WHERE account=?",User.class,new Object[]{getAccount()});
+        Db_user u = (Db_user) query.queryUniqueRow("SELECT * FROM db_user WHERE account=?",Db_user.class,new Object[]{getAccount()});
         if(u == null || !u.getPassword().equals(password))
             new GenaryAppError(AppErrorCode.PASSWORD_ERR);
         UserMap um = PlayerInit.initUserMap(u);

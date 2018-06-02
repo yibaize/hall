@@ -4,7 +4,7 @@ package org.zgl.logic.hall.ranking;
 import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.PlayerInit;
 import org.zgl.player.UserMap;
 import org.zgl.utils.DateUtils;
@@ -31,9 +31,9 @@ public class RankingManager {
         //获取所有用户
         Query query = QueryFactory.createQuery();
         String sql = "SELECT * FROM user";
-        List<User> users = query.queryRows(sql,User.class,null);
+        List<Db_user> users = query.queryRows(sql,Db_user.class,null);
         Map<String,UserMap> userMapMap = new HashMap<>(users.size());
-        for(User u : users){
+        for(Db_user u : users){
             userMapMap.putIfAbsent(u.getAccount(),PlayerInit.initUserMap(u));
         }
         //拼装消息以备排序

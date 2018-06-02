@@ -10,7 +10,7 @@ import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.logic.room_connection.IntoRoom;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.UserMap;
 import org.zgl.utils.DateUtils;
 
@@ -82,7 +82,7 @@ public class GiftBagManager {
         //TODO 如果达到领取奖品条件 下发通知客户端
         updateData(um.entity2map(),"giftBag");
     }
-    private void updateData(User u, String fieldName){
+    private void updateData(Db_user u, String fieldName){
         //更新数据
         Query query = QueryFactory.createQuery();
         query.update(u,new String[]{fieldName});

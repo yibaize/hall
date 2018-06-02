@@ -5,6 +5,7 @@ import org.zgl.jetty.operation.OperateCommandAbstract;
 import org.zgl.jetty.builder_clazz.OperateCommandRecive;
 import org.zgl.jetty.session.SessionManager;
 import org.zgl.player.UserMap;
+import org.zgl.utils.ArrayUtils;
 import org.zgl.utils.DateUtils;
 import org.zgl.utils.ProtostuffUtils;
 import org.zgl.utils.StringUtils;
@@ -44,6 +45,7 @@ public class JettyHandlerImpl {
                     if(id == 10001){
                         String account = StringUtils.substringAfterLast(msg.getMsg(),",");
                         String param = StringUtils.substringBeforeLast(msg.getMsg(),",");
+                        params = new String[]{param,account};
                     }else {
                         params = StringUtils.split(msg.getMsg(), ",");
                     }

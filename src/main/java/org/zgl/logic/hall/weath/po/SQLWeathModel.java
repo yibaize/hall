@@ -5,7 +5,7 @@ import org.zgl.logic.hall.shop.ShopEnum;
 import org.zgl.logic.hall.weath.dto.WeathDto;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.UserMap;
 import org.zgl.utils.builder_clazz.ann.OverlookField;
 
@@ -252,7 +252,7 @@ public class SQLWeathModel {
     }
     public void update(UserMap um, boolean isNotify){
         Query query = QueryFactory.createQuery();
-        User u = um.entity2map();
+        Db_user u = um.entity2map();
         query.update(u,new String[]{"weath"});
 //        if(isNotify && um.getSession().isConnected()) {
 ////            WeathResourceDto dto = new WeathResourceDto(gold, diamond, integral);

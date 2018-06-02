@@ -35,7 +35,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.42</version>
+      <version>8.0.11</version>
     </dependency>
     <!-- org.apache.poi /ecxel表格解析-->
     <dependency>

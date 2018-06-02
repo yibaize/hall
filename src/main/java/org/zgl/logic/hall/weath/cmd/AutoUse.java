@@ -7,7 +7,7 @@ import org.zgl.jetty.session.SessionManager;
 import org.zgl.logic.hall.weath.po.SQLWeathModel;
 import org.zgl.orm.core.Query;
 import org.zgl.orm.core.QueryFactory;
-import org.zgl.orm.po.User;
+import org.zgl.orm.po.Db_user;
 import org.zgl.player.UserMap;
 import org.zgl.utils.builder_clazz.ann.Protocol;
 
@@ -30,7 +30,7 @@ public class AutoUse extends OperateCommandAbstract {
         SQLWeathModel weath = userMap.getWeath();
         if(!weath.autoUse(id))
             new GenaryAppError(AppErrorCode.NOT_AUTO_ERR);
-        User user = userMap.entity2map();
+        Db_user user = userMap.entity2map();
         Query query = QueryFactory.createQuery();
         query.update(user,new String[]{"weath"});
         return null;
