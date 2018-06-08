@@ -5,12 +5,9 @@ import org.zgl.jetty.operation.OperateCommandAbstract;
 import org.zgl.jetty.builder_clazz.OperateCommandRecive;
 import org.zgl.jetty.session.SessionManager;
 import org.zgl.player.UserMap;
-import org.zgl.utils.ArrayUtils;
 import org.zgl.utils.DateUtils;
 import org.zgl.utils.ProtostuffUtils;
 import org.zgl.utils.StringUtils;
-import org.zgl.utils.executer.SelectorRunnablePool;
-import org.zgl.utils.executer.Worker;
 import org.zgl.utils.logger.LoggerUtils;
 
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +31,7 @@ public class JettyHandlerImpl {
             if (head != -777888)
                 return;
             short id = dataInputStream.readShort();
+
             short leng = dataInputStream.readShort();
             byte[] buf = dataInputStream.readAllBytes();
             if (buf.length != leng)

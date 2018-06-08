@@ -103,5 +103,4 @@ public class DBManager {
         }
         pool.close(conn);
     }
-
 }

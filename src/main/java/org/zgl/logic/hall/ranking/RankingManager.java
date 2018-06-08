@@ -30,7 +30,7 @@ public class RankingManager {
     private void charatorRanking(){
         //获取所有用户
         Query query = QueryFactory.createQuery();
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT * FROM db_user";
         List<Db_user> users = query.queryRows(sql,Db_user.class,null);
         Map<String,UserMap> userMapMap = new HashMap<>(users.size());
         for(Db_user u : users){

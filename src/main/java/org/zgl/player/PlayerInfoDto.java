@@ -29,13 +29,19 @@ public class PlayerInfoDto implements IPlayer{
     private String site;
     /**战绩*/
     private String exploits;
-
+    /**当前使用座驾*/
+    private int nowUserAutos;
     /**座驾*/
     private List<ResourceModel> autos;
     /**礼物*/
     private List<ResourceModel> gifts;
     /**道具*/
     private List<ResourceModel> props;
+    /**当天所输 / 赢的钱*/
+    private long todayGetMoney;
+
+    public PlayerInfoDto() {
+    }
 
     public PlayerInfoDto(UserMap um) {
         SQLUserBaseInfo baseInfo = um.getBaseInfo();
@@ -58,7 +64,17 @@ public class PlayerInfoDto implements IPlayer{
         this.gifts = weath.getGifts();
         this.props = weath.getProps();
     }
-
+    public void infoToWeath(UserMap userMap){
+        SQLWeathModel weath = userMap.getWeath();
+        weath.setGold(this.gold);
+        weath.setVipLv(this.vipLv);
+        weath.setDiamond(this.diamond);
+        weath.setAuto(this.nowUserAutos);
+        weath.setAutos(this.autos);
+        weath.setGifts(this.gifts);
+        weath.setIntegral(this.integral);
+        weath.setProps(this.props);
+    }
     public int getId() {
         return id;
     }
@@ -209,5 +225,21 @@ public class PlayerInfoDto implements IPlayer{
 
     public void setRoomPosition(int roomPosition) {
         this.roomPosition = roomPosition;
+    }
+
+    public int getNowUserAutos() {
+        return nowUserAutos;
+    }
+
+    public void setNowUserAutos(int nowUserAutos) {
+        this.nowUserAutos = nowUserAutos;
+    }
+
+    public long getTodayGetMoney() {
+        return todayGetMoney;
+    }
+
+    public void setTodayGetMoney(long todayGetMoney) {
+        this.todayGetMoney = todayGetMoney;
     }
 }

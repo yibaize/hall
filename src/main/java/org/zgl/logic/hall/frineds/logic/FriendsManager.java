@@ -154,7 +154,7 @@ public class FriendsManager {
     }
     private UserMap selectUser(String account){
         Query query = QueryFactory.createQuery();
-        Db_user u = (Db_user) query.queryUniqueRow("SELECT * FROM db_user WHERE account=?",Db_user.class,new Object[]{account});
+        Db_user u = (Db_user) query.queryUniqueRow("SELECT * FROM db_user WHERE id=?",Db_user.class,new Object[]{account});
         if(u == null)
             new GenaryAppError(AppErrorCode.FRIEND_NOT_USER_ERR);
         return PlayerInit.initUserMap(u);

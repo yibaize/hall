@@ -1,6 +1,7 @@
 package org.zgl.logic.hall.weath.dto;
 
 
+import org.zgl.player.PlayerInfoDto;
 import org.zgl.utils.builder_clazz.ann.Protostuff;
 
 import java.util.List;
@@ -10,20 +11,20 @@ import java.util.List;
  */
 @Protostuff
 public class RoomWeathDtos {
-    List<RoomWeathDto> weathDtos;
+    List<PlayerInfoDto> weathDtos;
 
     public RoomWeathDtos() {
     }
 
-    public RoomWeathDtos(List<RoomWeathDto> weathDtos) {
+    public RoomWeathDtos(List<PlayerInfoDto> weathDtos) {
         this.weathDtos = weathDtos;
     }
 
-    public List<RoomWeathDto> getWeathDtos() {
+    public List<PlayerInfoDto> getWeathDtos() {
         return weathDtos;
     }
 
-    public void setWeathDtos(List<RoomWeathDto> weathDtos) {
+    public void setWeathDtos(List<PlayerInfoDto> weathDtos) {
         this.weathDtos = weathDtos;
     }
 }
