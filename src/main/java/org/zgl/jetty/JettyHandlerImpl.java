@@ -55,20 +55,6 @@ public class JettyHandlerImpl {
             //加入线程中执行 由于httpServletResponse无法放到别的线程去用 所以不能开多线程
             UserMap userMap = SessionManager.getSession(op.getAccount());
             op.run();
-//            Worker worker = null;
-//            if (userMap != null) {
-//                worker = userMap.getWorker();
-//                if (worker == null) {
-//                    worker = selectorRunnablePool.nextWorker();
-//                    userMap.setWorker(worker);
-//                }
-//                worker.registerNewChannelTask(op);
-//            } else {
-//                op.run();
-//                userMap = SessionManager.getSession(op.getAccount());
-//                worker = selectorRunnablePool.nextWorker();
-//                userMap.setWorker(worker);
-//            }
             //超时处理s
             if (userMap != null)
                 userMap.setLoginTime(DateUtils.currentTime());

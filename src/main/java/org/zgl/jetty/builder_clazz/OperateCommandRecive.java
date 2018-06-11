@@ -30,6 +30,7 @@ import org.zgl.logic.room_connection.RoomPlayerInfo;
 import org.zgl.logic.hall.weath.cmd.RoomUpdateWeath;
 import org.zgl.logic.room_connection.IntoHall;
 import org.zgl.logic.room_connection.RoomPlayerErrorLogout;
+import org.zgl.logic.hall.weath.cmd.SystemWeathUpdateOperation;
 import org.zgl.logic.hall.weath.cmd.ShopUpdateWeathOPeration;
 import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateCommandRecive{
 	private static OperateCommandRecive instance;
@@ -102,6 +103,8 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 				return getIntoHall(params);
 			case 10003:
 				return getRoomPlayerErrorLogout(params);
+			case 10004:
+				return getSystemWeathUpdateOperation(params);
 			case 10008:
 				return getShopUpdateWeathOPeration(params);
 			default:
@@ -256,6 +259,14 @@ import org.zgl.jetty.operation.OperateCommandAbstract;public class OperateComman
 	private OperateCommandAbstract getRoomPlayerErrorLogout(String[] params){
 		String value0 = params[0];
 		return new RoomPlayerErrorLogout(value0);
+	}
+	private OperateCommandAbstract getSystemWeathUpdateOperation(String[] params){
+		String value0 = params[0];
+		int value1 = Integer.parseInt(params[1]);
+		long value2 = Long.parseLong(params[2]);
+		long value3 = Long.parseLong(params[3]);
+		long value4 = Long.parseLong(params[4]);
+		return new SystemWeathUpdateOperation(value0,value1,value2,value3,value4);
 	}
 	private OperateCommandAbstract getShopUpdateWeathOPeration(String[] params){
 		String value0 = params[0];

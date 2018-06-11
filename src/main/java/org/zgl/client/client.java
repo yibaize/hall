@@ -19,10 +19,6 @@ public class client {
     public static void main(String[] args) throws IOException, InterruptedException {
         client client = new client();
         LoginDto s1 = client.post((short)2,"2,2",LoginDto.class);
-        Thread.sleep(3000);
-        LoginDto s2 = client.post((short)2,"1,1",LoginDto.class);
-        System.out.println(s1);
-
     }
 
 
@@ -38,7 +34,7 @@ public class client {
 
             RequestBody body = RequestBody.create(MediaType.parse("application/octet-stream"),baos.toByteArray());
             Request request = new Request.Builder()
-                    .url("http://127.0.0.1:1010")
+                    .url("http://127.0.0.1:8888")
                     .post(body)
                     .build();
             Response response = client.newCall(request).execute();

@@ -31,5 +31,6 @@ public class CommandCode{
 	public static final int RoomUpdateWeath = 10001;
 	public static final int IntoHall = 10002;
 	public static final int RoomPlayerErrorLogout = 10003;
+	public static final int SystemWeathUpdateOperation = 10004;
 	public static final int ShopUpdateWeathOPeration = 10008;
 }
